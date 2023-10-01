@@ -1,23 +1,28 @@
-#include <stdio.h>
+#include "factor.h"
 
-int main()
+/**
+ * factorize - The function factorize a number
+ * @buffer: pointer to the address of the number
+ *
+ * Return: int
+ */
+int factorize(char *buffer)
 {
-    long long int num = 239809320265259;
-    long int factor1 = 2;
-    long int factor2;
 
-    while (num % factor1)
-    {
-        if (factor1 <= num)
-        {
-            factor1++;
-        }
-        else {
-            return (-1);
-        }
-    }
+	u_int32_t num;
+	u_int32_t i;
 
-    factor2 = num / factor1;
-    printf("%lld = %ld * %ld\n", num, factor2, factor1);
-    return (0);
+	num = atoi(buffer);
+
+
+	for (i = 2; i < num; i++)
+	{
+		if (num % i == 0)
+		{
+			printf("%d=%d*%d\n",num,num/i,i);
+			break;
+		}
+	}
+
+return (0);
 }
